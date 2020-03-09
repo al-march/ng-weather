@@ -1,0 +1,8 @@
+<div class="hero" style="background-image: url(../../assets/img/banner.png)">
+  <div class="container">
+    <form class="find-location">
+      <input type="text" [(ngModel)]="search" name="search" placeholder="Find your location...">
+      <input (click)="changeSearch(search)" type="submit" value="Find">
+    </form>
+  </div>
+</div>

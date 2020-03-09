@@ -1,0 +1,66 @@
+$browser-context: 14;
+$primary-font: 'Montserrat', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
+
+// Color Variables
+$accent-color: #009ad8;
+$primary-color: $accent-color;
+$secondary-color: #262936;
+$bg-color: #1e202b;
+
+$strong-color: #fff;
+$body-color: #bfc1c8;
+
+// Grid system
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+
+@mixin clearfix {
+  *zoom: 1;
+
+  &:after {
+    content: ' ';
+    clear: both;
+    display: block;
+    overflow: hidden;
+    height: 0;
+  }
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin cover() {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+@mixin auto_center($width, $height: $width) {
+  @include cover();
+  margin: auto;
+}
+
+// Converting PX value to EM based on browser-context variable
+// Usage: @include em(16)
+@mixin em($pixels, $context: $browser-context) {
+  font-size: #{$pixels}px;
+  font-size: #{$pixels/$context}em;
+}
+
+@mixin rem($pixels, $context: $browser-context) {
+  font-size: #{$pixels}px;
+  font-size: #{$pixels/$context}rem;
+}
+
+@mixin flex($direction, $content: flex-start, $item: stretch, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $content;
+  align-items: $item;
+  flex-wrap: $wrap;
+}

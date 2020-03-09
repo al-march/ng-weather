@@ -1,0 +1,11 @@
+.find-location {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 260px;
+    padding: 30px 0;
+  }
+}
