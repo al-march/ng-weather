@@ -6,12 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HeaderModule } from "./header/header.module";
-import { TableModule } from "./table/table.module";
+import { HeaderModule } from './template/header/header.module';
+import { TableModule } from './table/table.module';
 
 
 import { SearchComponent } from './search/search.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './template/footer/footer.component';
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     SearchComponent,
     FooterComponent
-    
+
   ],
   imports: [
     BrowserModule,
