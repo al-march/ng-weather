@@ -1,26 +1,23 @@
-<app-loader *ngIf="!weather"></app-loader>
-
 <div class="forecast-header">
-  <div class="day">{{weather.main}}</div>
+  <div class="day">{{cityWeather.weather[0].main}}</div>
   <div class="date">{{today | date:'d EEEE'}}</div>
 </div>
 
 <div class="forecast-content">
   <div class="location">
     <p>
-      {{city}}
+      {{cityWeather.name}}
     </p>
     <div class="forecast-icon">
-      <img [src]="'../../assets/img/icons/' + setIcon(weather.main) + '.svg'" alt="" width=90>
+      <img [src]="'../../assets/img/icons/' + setIcon(cityWeather.weather[0].main) + '.svg'" alt="" width=90>
     </div>
   </div>
   <div class="degree">
-    <div class="num">{{params.temp | number:'1.0-0'}}<sup>o</sup>C</div>
-
+    <div class="num">{{cityWeather.main.temp | number:'1.0-0'}}<sup>o</sup>C</div>
   </div>
   <footer class="forecast__footer">
-    <span><img src="../../assets/img/icon-umberella.png" alt="">{{params.humidity}}%</span>
-    <span><img src="../../assets/img/icon-wind.png" alt="">{{wind.speed}}km/h</span>
-    <span><img src="../../assets/img/icon-compass.png" alt="">{{wind.deg}}<sup>o</sup></span>
+    <span><img src="../../assets/img/icon-umberella.png" alt="">{{cityWeather.main.humidity}}%</span>
+    <span><img src="../../assets/img/icon-wind.png" alt="">{{cityWeather.wind.speed}}km/h</span>
+    <span><img src="../../assets/img/icon-compass.png" alt="">{{cityWeather.wind.deg}}<sup>o</sup></span>
   </footer>
 </div>

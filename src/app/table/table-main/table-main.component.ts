@@ -7,16 +7,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TableMainComponent implements OnInit {
 
-  @Input() weather;
-  @Input() city;
-  @Input() wind;
-  @Input() params;
+  @Input() cityWeather;
 
   today = new Date();
 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
   setIcon(weather) {

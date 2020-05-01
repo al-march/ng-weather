@@ -10,13 +10,13 @@ export class SearchComponent implements OnInit {
 
   search: string = '';
 
-  constructor(private ws: WeatherService) { }
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit(): void {
   }
 
   changeSearch(search) {
+    this.weatherService.getWeather(search).subscribe()
     this.search = ''
-    this.ws.getWeatherByInput(search)
   }
 }

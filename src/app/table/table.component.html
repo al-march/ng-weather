@@ -1,9 +1,8 @@
-<div *ngIf="weatherData" class="forecast-table">
+<div *ngIf="!isLoading" class="forecast-table">
   <div class="container">
     <div class="forecast-container">
       <div class="today forecast">
-        
-        <app-table-main [city]="weatherData.name" [wind]="weatherData.wind" [params]="weatherData.main" [weather]="weatherData.weather[0]" ></app-table-main>
+        <app-table-main [cityWeather]="weatherService.cityWeather"></app-table-main>
       </div>
     </div>
   </div>

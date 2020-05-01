@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { WeatherService } from "../weather.service";
 
 @Component({
@@ -8,22 +8,17 @@ import { WeatherService } from "../weather.service";
 })
 export class TableComponent implements OnInit {
 
-  weatherData: any;
-  newCity: any;
+  @Input() city: string;
 
-  constructor(private ws: WeatherService) { }
+  isLoading: boolean = true;
+
+  constructor(public weatherService: WeatherService) { }
 
   ngOnInit(): void {
-    this.ws.newSearchValue
-      .subscribe(city => {
-        this.getWeather(city)
-      })
-
-    this.getWeather('new york')
-
-  }
-  getWeather(city) {
-    this.ws.getWeather(city)
-      .subscribe(res => this.weatherData = res, null, () => console.log(this.weatherData))
+    this.weatherService.getWeather(this.city).subscribe(value => {
+      console.log(value);
+      this.isLoading = false;
+    });
+    
   }
 }
